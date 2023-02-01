@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labs | My Resume</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./contact.html">Contact Me</a>
+        <a href="./labs.html">Labs</a>
+      </nav>
+    </header>
+
+    <h1>Labs</h1>
+
+    <section>
+      <h2>To-Do</h2>
+      To-Do List:
+      <ul>
+        <li>
+          CSE 134B HW
+          <ol>
+            <li>Site Planning</li>
+            <li>HTML Site</li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Shopping</h2>
+      <form action="">
+        <fieldset>
+          <legend>Name</legend>
+          <label>
+            First Name:
+            <input
+              type="text"
+              name="firstname"
+              id="firstname"
+              placeholder="Joel"
+              required
+            />
+          </label>
+          <label>
+            Last Name:
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Miller"
+              required
+            />
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Address</legend>
+          <label>
+            Street Address:
+            <input
+              type="text"
+              name="street"
+              id="street"
+              placeholder="123 Main Street"
+              required
+            />
+          </label>
+          <br />
+          <label>
+            City: <input type="text" name="city" id="city" required />
+          </label>
+          <br />
+          <label
+            >State:
+            <input type="text" name="city" id="city" list="state" required />
+          </label>
+          <br />
+          <label>
+            Zip Code: <input type="text" name="zipcode" id="zipcode" required />
+          </label>
+          <br />
+          <datalist id="state">
+            <option>CA</option>
+            <option>NV</option>
+            <option>AZ</option>
+            <option>OR</option>
+          </datalist>
+        </fieldset>
+        <fieldset>
+          <legend>Shipping</legend>
+          <div>
+            <input
+              type="radio"
+              name="shipping"
+              id="free"
+              value="free"
+              required
+              checked
+            />
+            <label for="free">7-14 days (FREE)</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="shipping"
+              id="regular"
+              value="regular"
+              required
+            />
+            <label for="regular">2-4 days ($2.99)</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="shipping"
+              id="oneday"
+              value="oneday"
+              required
+            />
+            <label for="oneday">1 day ($7.99)</label>
+          </div>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </body>
+</html>

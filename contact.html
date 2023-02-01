@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me | My Resume</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./contact.html">Contact Me</a>
+        <a href="./labs.html">Labs</a>
+      </nav>
+    </header>
+    <h1>Contact Me</h1>
+    <form action="" method="GET">
+      <label for="name-input">Your Name:</label>
+      <input type="text" name="yourname" id="name-input" required />
+      <br />
+      <label for="email">Your Email:</label>
+      <input type="email" name="email" id="email" required />
+      <br />
+      <label for="notes">Message <i>(optional):</i></label
+      ><br />
+      <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+      <br />
+      <i>Are you available for a Zoom call this week?</i><br />
+      <label for="zoom-time">Zoom call time: </label>
+
+      <select name="zoom-time" id="zoom-time">
+        <option value="none" selected>Not available</option>
+        <optgroup label="Monday">
+          <option value="mon-1">1 PM</option>
+          <option value="mon-3">3 PM</option>
+        </optgroup>
+        <optgroup label="Wednesday">
+          <option value="wed-3">3 PM</option>
+          <option value="wed-5">5 PM</option>
+        </optgroup>
+      </select>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <footer><i>Made in San Diego.</i></footer>
+  </body>
+</html>
