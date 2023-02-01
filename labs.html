@@ -5,127 +5,220 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Labs | My Resume</title>
+    <script>
+      window.addEventListener("load", function () {
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+
+        context.fillStyle = "yellow";
+        context.fillRect(15, 30, 90, 75);
+
+        context.strokeStyle = "red";
+        context.strokeRect(40, 10, 150, 65);
+      });
+    </script>
   </head>
   <body>
     <header>
       <nav>
         <a href="./index.html">Home</a>
+        <a href="./about.html">About Me</a>
         <a href="./contact.html">Contact Me</a>
         <a href="./labs.html">Labs</a>
       </nav>
+      <h1>Labs</h1>
     </header>
 
-    <h1>Labs</h1>
+    <main>
+      <section>
+        <h2>Notes</h2>
+        To-Do List:
+        <ul>
+          <li>
+            CSE 134B HW
+            <ol>
+              <li>Site Planning</li>
+              <li>HTML Site</li>
+            </ol>
+          </li>
+        </ul>
+        <div>
+          <p>Question:</p>
+          <p>
+            When do you <em>actually</em> need a <code>div</code> instead of a
+            semantic element? Am I overusing <code>section</code> right now?
+          </p>
+        </div>
+      </section>
 
-    <section>
-      <h2>To-Do</h2>
-      To-Do List:
-      <ul>
-        <li>
-          CSE 134B HW
-          <ol>
-            <li>Site Planning</li>
-            <li>HTML Site</li>
-          </ol>
-        </li>
-      </ul>
-    </section>
+      <section>
+        <h2>Shopping</h2>
+        <form action="">
+          <fieldset>
+            <legend>Name</legend>
+            <label>
+              First Name:
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="Joel"
+                required
+              />
+            </label>
+            <label>
+              Last Name:
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Miller"
+                required
+              />
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Address</legend>
+            <label>
+              Street Address:
+              <input
+                type="text"
+                name="street"
+                id="street"
+                placeholder="123 Main Street"
+                required
+              />
+            </label>
+            <br />
+            <label>
+              City:
+              <input
+                type="text"
+                name="city"
+                id="city"
+                placeholder="San Diego"
+                required
+              />
+            </label>
+            <br />
+            <label
+              >State:
+              <input type="text" name="city" id="city" list="state" required />
+            </label>
+            <br />
+            <label>
+              Zip Code:
+              <input type="text" name="zipcode" id="zipcode" required />
+            </label>
+            <br />
+            <datalist id="state">
+              <option>CA</option>
+              <option>NV</option>
+              <option>AZ</option>
+              <option>OR</option>
+            </datalist>
+          </fieldset>
+          <fieldset>
+            <legend>Shipping</legend>
+            <div>
+              <input
+                type="radio"
+                name="shipping"
+                id="free"
+                value="free"
+                required
+                checked
+              />
+              <label for="free">7-14 days (FREE)</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="shipping"
+                id="regular"
+                value="regular"
+                required
+              />
+              <label for="regular">2-4 days ($2.99)</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="shipping"
+                id="oneday"
+                value="oneday"
+                required
+              />
+              <label for="oneday">1 day ($7.99)</label>
+            </div>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
 
-    <section>
-      <h2>Shopping</h2>
-      <form action="">
-        <fieldset>
-          <legend>Name</legend>
-          <label>
-            First Name:
-            <input
-              type="text"
-              name="firstname"
-              id="firstname"
-              placeholder="Joel"
-              required
+      <section>
+        <h2>My iframe example</h2>
+
+        <iframe src="https://ucsd.edu" frameborder="0" width="600" height="400">
+          <a href="https://ucsd.edu">Link to UCSD.edu</a>
+        </iframe>
+      </section>
+
+      <section>
+        <h2>Audio and Video</h2>
+        <figure>
+          <figcaption>
+            Diabelli Variations 00 by Beethoven (from Wikipedia)
+          </figcaption>
+          <audio
+            controls
+            src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Beethoven_-_Diabelli_Variations_-_00.ogg"
+          >
+            <a
+              href="https://upload.wikimedia.org/wikipedia/commons/e/e9/Beethoven_-_Diabelli_Variations_-_00.ogg"
+            >
+              Download audio
+            </a>
+          </audio>
+        </figure>
+        <!-- https://upload.wikimedia.org/wikipedia/commons/c/c4/Physicsworks.ogv -->
+        <figure>
+          <figcaption>
+            Physics lecture video clip by Walter Lewin (also from Wikipedia)
+          </figcaption>
+          <video controls width="300">
+            <source
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Physicsworks.ogv"
+              type="video/ogg"
             />
-          </label>
-          <label>
-            Last Name:
-            <input
-              type="text"
-              name="lastname"
-              id="lastname"
-              placeholder="Miller"
-              required
-            />
-          </label>
-        </fieldset>
-        <fieldset>
-          <legend>Address</legend>
-          <label>
-            Street Address:
-            <input
-              type="text"
-              name="street"
-              id="street"
-              placeholder="123 Main Street"
-              required
-            />
-          </label>
-          <br />
-          <label>
-            City: <input type="text" name="city" id="city" required />
-          </label>
-          <br />
-          <label
-            >State:
-            <input type="text" name="city" id="city" list="state" required />
-          </label>
-          <br />
-          <label>
-            Zip Code: <input type="text" name="zipcode" id="zipcode" required />
-          </label>
-          <br />
-          <datalist id="state">
-            <option>CA</option>
-            <option>NV</option>
-            <option>AZ</option>
-            <option>OR</option>
-          </datalist>
-        </fieldset>
-        <fieldset>
-          <legend>Shipping</legend>
-          <div>
-            <input
-              type="radio"
-              name="shipping"
-              id="free"
-              value="free"
-              required
-              checked
-            />
-            <label for="free">7-14 days (FREE)</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              name="shipping"
-              id="regular"
-              value="regular"
-              required
-            />
-            <label for="regular">2-4 days ($2.99)</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              name="shipping"
-              id="oneday"
-              value="oneday"
-              required
-            />
-            <label for="oneday">1 day ($7.99)</label>
-          </div>
-        </fieldset>
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+            <a
+              href="https://upload.wikimedia.org/wikipedia/commons/c/c4/Physicsworks.ogv"
+              >Download the video</a
+            >
+          </video>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Canvas Example</h2>
+        <canvas id="canvas" width="300" height="300">
+          <strong>Canvas not supported by your browser.</strong>
+        </canvas>
+      </section>
+    </main>
+
+    <footer>
+      <p><i>Made in San Diego.</i></p>
+      <pre>
+             ___  ___
+            /   \/   \
+            \        /
+             \      /
+              \    /
+               \  /
+                \/
+          </pre
+      >
+    </footer>
   </body>
 </html>
