@@ -103,7 +103,13 @@
             <br />
             <label
               >State:
-              <input type="text" name="city" id="city" list="state" required />
+              <input
+                type="text"
+                name="state"
+                id="state"
+                list="statelist"
+                required
+              />
             </label>
             <br />
             <label>
@@ -111,7 +117,7 @@
               <input type="text" name="zipcode" id="zipcode" required />
             </label>
             <br />
-            <datalist id="state">
+            <datalist id="statelist">
               <option>CA</option>
               <option>NV</option>
               <option>AZ</option>
@@ -159,9 +165,7 @@
       <section>
         <h2>My iframe example</h2>
 
-        <iframe src="https://ucsd.edu" frameborder="0" width="600" height="400">
-          <a href="https://ucsd.edu">Link to UCSD.edu</a>
-        </iframe>
+        <iframe src="https://ucsd.edu" width="600" height="400"> </iframe>
       </section>
 
       <section>
