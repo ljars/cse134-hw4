@@ -1,0 +1,94 @@
+* {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+
+}
+
+/* Basic */
+body {
+    /* rgb(172, 100, 84); */
+    background-color: rgb(84, 93, 172);
+    display: grid;
+    justify-items: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+:root {
+    /* Smoothly transition from sharp corners when the window is narrow
+    and rounded corners when the window is wide. */
+    --break-width: 50rem;
+    --max-radius: 1rem;
+    --corner-radius: min(var(--max-radius), calc((100vw - var(--break-width))/10));
+}
+
+    
+main, header, footer {
+    width: 100vw;
+    width: calc(var(--break-width) + 5rem);
+    background-color: white;
+}
+header {
+    background-color: #00000000;
+    width: calc(var(--break-width) + 7rem);
+    /* padding: 1rem; */
+}
+header nav {
+    /* max-width: var(--break-width); */
+}
+header h1 {
+    background-color: white;
+    display: block;
+    /* border-radius: var(--demo-radii) var(--demo-radii) 0 0; */
+    border-radius: var(--corner-radius) var(--corner-radius) 0 0;
+    padding: 1rem;
+}
+footer {
+    border-radius: 0 0 var(--corner-radius) var(--corner-radius);
+    padding: 1rem;
+}
+
+main {
+    /* padding: 10px; */
+    padding: 1rem;
+}
+
+
+/* Nav Bar */
+nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* padding: 0; */
+    padding-top: 5px;
+    margin: 0;
+    /* background-color: rgb(58, 53, 49); */
+    /* column-gap: 10px; */
+   
+}
+nav a {
+    font-family: monospace;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    text-decoration: none;
+    padding: 1rem;
+    color: white;
+    height: 50%;
+    
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.211);
+}
+nav a.active-tab {
+    background-color: white;
+    color: black;
+}
+/* a.active-tab[href="./labs.html"]*/
+/* nav ~ h1 {
+    background-color: rgb(255, 0, 0);
+    color: rgb(200, 0, 0);
+    font-size: xx-large;
+} */
+
