@@ -4,22 +4,6 @@
 
 }
 
-/* Basic */
-body {
-    /* rgb(172, 100, 84); */
-    background-color: rgb(84, 93, 172);
-    display: grid;
-    /* justify-items: center; */
-    justify-content: center;
-    grid-template-columns: calc(var(--main-width));
-    /* grid-template-columns: auto; */
-    grid-template-rows: auto;
-
-    /* display: grid;
-    grid-template-columns: 200px;
-    justify-content: center;
-    grid-auto-rows: auto; */
-}
 :root {
     /* Smoothly transition from sharp corners when the window is narrow
     and rounded corners when the window is wide. */
@@ -27,13 +11,82 @@ body {
     --main-width: min(100vw, var(--break-width));
     --max-radius: 1rem;
     --corner-radius: min(var(--max-radius), calc((100vw - var(--break-width))/10));
+    --panel-color: rgb(44, 44, 44);
+    --panel-text-color: white;
+    --back-color: rgb(84, 93, 172);
+    --back-text-color: rgb(255, 255, 255);
+     /* rgb(154, 84, 172); */
 }
+
+.expandable {
+    visibility: collapse;
+    background: #ddd;
+}
+#darkmode-hidden-checkbox {
+    display: none;
+}
+
+#darkmode-label {
+    display: inline-block;
+    color: var(--back-text-color);
+    /* padding: 0.5rem 0.5rem 0.5rem 0; */
+    margin-bottom: 1rem;
+}
+#darkmode-switch {
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-left: 0.2em;
+    /* margin-top: 12px; */
+    /* width: 2.5rem; */
+    /* padding: .2rem 1rem .2rem 0.2rem; */
+    /* margin-right: 10em; */
+    vertical-align: bottom;
+    padding: .2em 0.2em .2em 1.5em;
+    /* background-color: rgb(41, 41, 41); */
+    background-color: var(--panel-color);
+    /* border: 0.2em solid var(--panel-text-color); */
+    border-radius: 1em;
+}
+#darkmode-switch #knob {
+    display: block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--panel-text-color);
+    border-radius: 1em;
+}
+
+#darkmode-hidden-checkbox:checked ~ * {
+    --panel-color: rgb(255, 255, 255);
+    --panel-text-color: rgb(0, 0, 0);
+}
+#darkmode-hidden-checkbox:checked ~ * #darkmode-switch {
+    /* background-color: #ccc; */
+    /* background-color: rgb(255, 255, 255); */
+    padding: .2em 1.5em .2em 0.2em;
+}
+
+/* Basic */
+body {
+    /* rgb(172, 100, 84); */
+    /* background-color: rgb(84, 93, 172); */
+    background-color: var(--back-color);
+    
+    display: grid;
+    /* justify-items: center; */
+    justify-content: center;
+    grid-template-columns: calc(var(--main-width));
+    /* grid-template-columns: auto; */
+    grid-template-rows: auto;
+}
+
 
     
 main, header, footer {
+    color: var(--panel-text-color);
     /* width: 100vw; */
     /* max-width: calc(var(--main-width)); */
-    background-color: white;
+    background-color: var(--panel-color);
+    transition: background-color 0.2s;
 }
 header {
     background-color: #00000000;
@@ -44,6 +97,7 @@ footer {
     border-radius: 0 0 var(--corner-radius) var(--corner-radius);
     background-color: #00000000;
     color: white;
+    padding: 1rem;
     /* font-family: monospace; */
     /* padding: 1rem; */
 }
@@ -59,7 +113,7 @@ main {
 /* Nav Bar */
 nav {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-end;
     /* padding: 0; */
     padding-top: 5px;
@@ -75,8 +129,8 @@ nav a {
     /* font-weight: bold; */
     text-decoration: none;
     padding: 1rem;
-    color: white;
-    height: 50%;
+    color: var(--back-text-color);
+    /* height: 50%; */
     
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -86,8 +140,8 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.211);
 }
 nav a.active-tab {
-    background-color: white;
-    color: black;
+    background-color: var(--panel-color);
+    color: var(--panel-text-color);
 }
 /* a.active-tab[href="./labs.html"]*/
 /* nav ~ h1 {
