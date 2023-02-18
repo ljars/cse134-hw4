@@ -20,34 +20,51 @@
     </header>
     <main>
       <h1>Contact Me</h1>
-      <form action="contact.html" method="POST">
-        <label for="name-input">Your Name:</label>
-        <input type="text" name="yourname" id="name-input" required />
-        <br />
-        <label for="email">Your Email:</label>
-        <input type="email" name="email" id="email" required />
-        <br />
-        <label for="notes">Message <i>(optional):</i></label
-        ><br />
-        <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
-        <br />
-        <i>Are you available for a Zoom call this week?</i><br />
-        <label for="zoom-time">Zoom call time: </label>
+      <section>
+        <h2>Arrange a Meeting</h2>
+        <form action="contact.html" method="POST">
+          <label for="name-input">Your Name:</label>
+          <input type="text" name="yourname" id="name-input" required />
+          <br />
+          <label for="email">Your Email:</label>
+          <input type="email" name="email" id="email" required />
+          <br />
+          <label for="notes">Message <i>(optional):</i></label
+          ><br />
+          <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+          <br />
+          <i>Are you available for a Zoom call this week?</i><br />
+          <label for="zoom-time">Zoom call time: </label>
 
-        <select name="zoom-time" id="zoom-time">
-          <option value="none" selected>Not available</option>
-          <optgroup label="Monday">
-            <option value="mon-1">1 PM</option>
-            <option value="mon-3">3 PM</option>
-          </optgroup>
-          <optgroup label="Wednesday">
-            <option value="wed-3">3 PM</option>
-            <option value="wed-5">5 PM</option>
-          </optgroup>
-        </select>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+          <select name="zoom-time" id="zoom-time">
+            <option value="none" selected>Not available</option>
+            <optgroup label="Monday">
+              <option value="mon-1">1 PM</option>
+              <option value="mon-3">3 PM</option>
+            </optgroup>
+            <optgroup label="Wednesday">
+              <option value="wed-3">3 PM</option>
+              <option value="wed-5">5 PM</option>
+            </optgroup>
+          </select>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Contact Info</h2>
+        <address>
+          <p>
+            Email <br />
+            <a href="mailto:ljars@ucsd.edu">ljars@ucsd.edu</a>
+          </p>
+          <p>
+            Phone <br />
+            <a href="tel:6195555555">619-555-5555</a>
+          </p>
+        </address>
+      </section>
     </main>
 
     <footer>

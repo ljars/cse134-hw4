@@ -188,6 +188,7 @@ aside {
     padding: 1rem;
     display: block;
     flex: 1 0 40%;
+    align-self: center;
 }
 
 
@@ -203,17 +204,42 @@ aside {
     }
   }
 
-nav p {
-    margin: auto auto auto 1rem;
+
+
+main section, main p {
+    flex: 1 0 50%;
+    margin: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    background-color: #b9add41e;
+    /* max-width: 100%; */
+
 }
-/* nav img {
-    margin-right: auto;
-} */
+nav p {
+    padding: 0;
+    margin: auto auto auto 1rem;
+    color: white;
+    background-color: #00000000;
+}
 
-/* h1 strong {
-    font-size: calc(5rem + var(--corner-radius));
-} */
-
-/* p ~ h1 {
-    font-size: 5rem;
-} */
+figure {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+figcaption {
+    flex: 1 0 30%;
+    padding: 1rem;
+}
+figure img, figure picture {
+    border-radius: 1rem;
+    /* width: min-content; */
+    flex: 1 0 20%;
+    max-width: calc(100vw - 4rem);
+    height: auto;
+}
+figure p {
+    margin: 0;
+    padding: 0;
+    background-color: #00000000;
+}
