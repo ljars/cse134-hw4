@@ -19,6 +19,8 @@
     <input type="checkbox" id="darkmode-hidden-checkbox" />
     <header>
       <nav>
+        <p>Lucas Jarstad &hearts;</p>
+        <!-- <img src="resources/lj.svg" alt="my logo" width="50" height="50" /> -->
         <a href="./index.html" class="active-tab">Home</a>
         <a href="./about.html">About Me</a>
         <a href="./contact.html">Contact Me</a>
@@ -27,19 +29,44 @@
     </header>
 
     <main>
-      <h1>My Resume Site</h1>
-      <p>
-        Hi, welcome to my resume site. I'm
-        <span class="myname">Lucas Jarstad</span>.
-      </p>
-      <p>
-        Check out the <a href="./about.html">About Me</a> page for more info, or
-        send me a message on the <a href="./contact.html">Contact Me</a> page.
-      </p>
-      <p>Thank you <b>very</b> much for checking out my site.</p>
+      <h1>Hi, I'm <strong>Lucas Jarstad</strong></h1>
 
+      <picture id="my-portrait">
+        <source
+          srcset="resources/my-portrait.webp"
+          media="(min-width:1024px)"
+          type="image/webp"
+        />
+        <source
+          srcset="resources/my-portrait-medium.webp"
+          media="(min-width:480px)"
+          type="image/webp"
+        />
+        <source srcset="resources/my-portrait-mobile.webp" type="image/webp" />
+
+        <img
+          src="resources/my-portrait.png"
+          alt="my portrait photo"
+          width="300"
+        />
+      </picture>
+      <!-- <div>
+        <p>Welcome to my resume site. I'm glad you're here. Chec</p>
+      </div> -->
+      <!-- <aside> -->
+      <aside>
+        <p>Welcome to my resume site. I'm glad you're here.</p>
+        <p>
+          Check out the <a href="./about.html">About Me</a> page for more info,
+          or send me a message on the
+          <a href="./contact.html">Contact Me</a> page.
+        </p>
+        <p>Thank you <b>very</b> much for checking out my site.</p>
+      </aside>
+
+      <!-- </aside> -->
       <!-- SVG Logo -->
-      <svg
+      <!-- <svg
         version="1.1"
         viewBox="0.0 0.0 960.0 960.0"
         fill="none"
@@ -81,7 +108,7 @@
             fill-rule="evenodd"
           />
         </g>
-      </svg>
+      </svg> -->
       <br />
     </main>
 
@@ -90,16 +117,7 @@
         Dark Mode
         <div id="darkmode-switch"><div id="knob"></div></div>
       </label>
-      <p><i>Made in San Diego.</i></p>
-      <pre>
-         ___  ___
-        /   \/   \
-        \        /
-         \      /
-          \    /
-           \  /
-            \/
-      </pre>
+      <p><i>(Dark mode will persist across pages once we can use JS.)</i></p>
     </footer>
   </body>
 </html>
