@@ -20,14 +20,26 @@
     </header>
     <main>
       <h1>Contact Me</h1>
-      <section>
+      <section class="contact-section">
         <h2>Arrange a Meeting</h2>
         <form action="contact.html" method="POST">
           <label for="name-input">Your Name:</label>
-          <input type="text" name="yourname" id="name-input" required />
+          <input
+            type="text"
+            name="yourname"
+            id="name-input"
+            placeholder="Joe Smith"
+            required
+          />
           <br />
-          <label for="email">Your Email:</label>
-          <input type="email" name="email" id="email" required />
+          <label for="email-input">Your Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            placeholder="email@example.com"
+            required
+          />
           <br />
           <label for="notes">Message <i>(optional):</i></label
           ><br />
@@ -52,7 +64,7 @@
         </form>
       </section>
 
-      <section>
+      <section class="contact-section">
         <h2>Contact Info</h2>
         <address>
           <p>

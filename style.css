@@ -4,11 +4,6 @@
 
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
-
-
-
 :root {
     /* Smoothly transition from sharp corners when the window is narrow
     and rounded corners when the window is wide. */
@@ -16,14 +11,11 @@
     --main-width: min(100vw, var(--break-width));
     --max-radius: 1rem;
     --corner-radius: min(var(--max-radius), calc((100vw - var(--break-width))/10));
-    /* --title-size: calc(2rem + max(0px, var(--corner-radius))); */
     --title-size: min(calc(1.5rem + 2vw), 3rem);
     --panel-color: rgb(44, 44, 44);
     --panel-text-color: white;
-    --back-color: rgb(84, 93, 172); 
-    /* rgb(84, 93, 172); */
+    --back-color: rgb(84, 93, 172);
     --back-text-color: rgb(255, 255, 255);
-     /* rgb(154, 84, 172); */
 }
 
 /* DARK MODE */
@@ -72,15 +64,11 @@
 
 /* Basic */
 body {
-    /* rgb(172, 100, 84); */
-    /* background-color: rgb(84, 93, 172); */
     background-color: var(--back-color);
     
     display: grid;
-    /* justify-items: center; */
     justify-content: center;
     grid-template-columns: calc(var(--main-width));
-    /* grid-template-columns: auto; */
     grid-template-rows: auto;
 }
 
@@ -88,8 +76,6 @@ body {
     
 main, header, footer {
     color: var(--panel-text-color);
-    /* width: 100vw; */
-    /* max-width: calc(var(--main-width)); */
     background-color: var(--panel-color);
     transition: background-color 0.2s;
 }
@@ -103,38 +89,30 @@ footer {
     background-color: #00000000;
     color: white;
     padding: 1rem;
-    /* font-family: monospace; */
-    /* padding: 1rem; */
 }
 
 main {
-    /* padding: 10px; */
     padding: 1rem;
-    /* width: calc(var(--main-width)); */
-    border-radius: var(--corner-radius); /*var(--corner-radius) 0 0;*/
+    border-radius: var(--corner-radius);
 }
 
 
 /* Nav Bar */
+
 nav {
     display: flex;
     align-items: stretch;
     justify-content: flex-end;
-    /* padding: 0; */
     padding-top: 5px;
     margin: 0;
-    /* position: fixed; */
-    /* background-color: var(--back-color); */
    
 }
 nav a {
     font-family: monospace;
     text-transform: uppercase;
-    /* font-weight: bold; */
     text-decoration: none;
     padding: 1rem;
     color: var(--back-text-color);
-    /* height: 50%; */
     
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -161,26 +139,21 @@ a:hover {
     background-color: #848bca;
     display: block;
     margin: 1rem;
-    /* flex: 0 0 40%; */
 }
 
 #my-portrait img {
-    /* right: 0; */
     display: block;
     margin: 0;
     border-radius: 100rem;
 }
-
 h1 {
     flex-basis: 100%;
-    /* text-align: center; */
     font-size: var(--title-size);
 }
 
 main {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: ; */
     grid-template-columns: 1fr;
 }
 
@@ -204,18 +177,19 @@ aside {
     }
   }
 
-
-
 main section, main p {
     flex: 1 0 50%;
     margin: 0.5rem;
     padding: 0.8rem;
     border-radius: 1rem;
     background-color: #b9add41e;
-    /* max-width: 100%; */
+    align-self: baseline;
 
 }
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=JetBrains+Mono:wght@300&display=swap');
+
 nav p {
+    font-family: 'JetBrains Mono', monospace;
     padding: 0;
     margin: auto auto auto 1rem;
     color: white;
@@ -233,13 +207,74 @@ figcaption {
 }
 figure img, figure picture {
     border-radius: 1rem;
-    /* width: min-content; */
     flex: 1 0 20%;
-    max-width: calc(100vw - 4rem);
+    max-width: calc(100vw - 7rem);
     height: auto;
+    
 }
 figure p {
     margin: 0;
     padding: 0;
     background-color: #00000000;
+}
+
+/* FORM */
+input[type="text"], input[type="email"] {
+    background-color: #b9add494;
+    border-radius: 0.1rem;
+    border-style: none;
+    color: var(--panel-text-color);
+    height: 2rem;
+    margin: 0.2rem;
+    padding: 0 0.5rem;
+}
+textarea {
+    background-color: #b9add494;
+    border-radius: 0.1rem;
+    border-style: none;
+    color: var(--panel-text-color);
+    resize: none;
+    margin: 0.2rem;
+    padding: 0.5rem;
+}
+select {
+    background-color: #b9add494;
+    border-radius: 0.1rem;
+    padding: 0.4rem;
+    border-style: none;
+    color: var(--panel-text-color)
+}
+button {
+    background-color: var(--back-color);
+    border-radius: 0.5rem;
+    border-style: none;
+    color: var(--back-text-color);
+    margin: 0.2rem;
+    padding: 1rem 1rem 0.8rem 1rem;
+    cursor: pointer;
+    box-shadow: 0 0.5rem rgb(46, 32, 104);
+}
+button:active {
+    box-shadow: 0 0.2rem rgb(33, 24, 71);
+    transform: translateY(0.3rem);
+}
+label[for="name-input"], label[for="email-input"] {
+    display: inline-block;
+    width: 12ch;
+}
+.contact-section {
+    flex: 1 0 20%;
+}
+
+/* TABLE */
+
+th, tr, col {
+    text-align: center;
+    background-color: #6a6f973b;
+}
+.languages {
+    background-color: #7983cec9;
+}
+.utilities {
+    background-color: #375ec9c9;
 }
