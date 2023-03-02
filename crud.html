@@ -12,70 +12,7 @@
         }
     </style>
 
-    <script type="module">
-        import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify/dist/purify.es.min.js';
-
-        import { myAlert, myConfirm, myPrompt, myBlogPrompt } from './customdialog.js';
-
-        function sanitized(strs, val) {
-            return DOMPurify.sanitize(strs[0] + val);
-        }
-
-        function setOutput(str) {
-            let op = document.querySelector('output');
-            op.innerHTML = str;
-        }
-
-        const template = document.querySelector('template');
-        const container = document.querySelector('#blog-posts-container');
-
-        function deleteClicked(cloned) {
-            myConfirm("Delete this post?", function (answer) {
-                if (answer) {
-                    cloned.target.parentNode.remove();
-                    // myAlert('Deleted.');
-                }
-            })
-        }
-        function editClicked() {
-
-        }
-
-        function clonePost(title, date, summary) {
-            console.log('Clone post...');
-            const cloned = template.content.firstElementChild.cloneNode(true);
-            cloned.querySelector('h3').innerHTML = sanitized`${title}`;
-            cloned.querySelector('.date').innerHTML = sanitized`Date posted: ${date}`;
-            cloned.querySelector('.summary').innerHTML = sanitized`Summary: <br />${summary}`;
-
-
-            cloned.querySelector('.delete-button').addEventListener('click', deleteClicked);
-            cloned.querySelector('.edit-button').addEventListener('click', function () {
-                editClicked();
-            });
-            container.appendChild(cloned);
-            // container.removeChild(result);
-        }
-
-
-        function addPostClicked() {
-            console.log("ADD POST CLICKED");
-            myBlogPrompt("Create a new post...", function (answer) {
-                // console.log(answer);
-                if (answer !== null) {
-                    clonePost(answer.title, answer.date, answer.summary);
-                }
-            });
-        }
-
-
-        function init() {
-            let addPostButton = document.getElementById('add-post-button');
-            addPostButton.addEventListener('click', addPostClicked);
-        }
-
-        window.addEventListener('DOMContentLoaded', init);
-    </script>
+    <script type="module" src="./blog.js"></script>
 </head>
 
 <body>
