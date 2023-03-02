@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Native Dialogs</title>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+  <script>
+
+    function sanitize(strs, val) {
+      return DOMPurify.sanitize(strs[0] + val);
+    }
+
+    function setOutput(str) {
+      let op = document.querySelector('output');
+      op.innerHTML = str;
+    }
+
+    const alertClicked = () => alert('Alert pressed!');
+
+    function confirmClicked() {
+      setOutput('');
+      setTimeout(function () {
+        let answer = confirm('Do you confirm this?');
+        setOutput(`The value returned by the confirm method is : ${answer}`);
+      }, 0);
+    }
+    function promptClicked() {
+      setOutput('');
+      setTimeout(function () {
+        let answer = prompt('What is your name?');
+        if (answer === null) {
+          setOutput("User didn't enter anything");
+        } else {
+          setOutput(`The value returned by the prompt method is : ${answer}`);
+        }
+      }, 0);
+    }
+    function saferClicked() {
+      setOutput('');
+      setTimeout(function () {
+        let answer = prompt('What is your name?');
+        if (answer === null) {
+          setOutput("User didn't enter anything");
+        } else {
+          setOutput(sanitize`The value returned by the safer prompt method is : ${answer}`);
+        }
+      }, 0);
+    }
+
+    function init() {
+      let alertButton = document.getElementById('alert');
+      let confirmButton = document.getElementById('confirm');
+      let promptButton = document.getElementById('prompt');
+      let saferButton = document.getElementById('safer');
+      alertButton.addEventListener('click', alertClicked);
+      confirmButton.addEventListener('click', confirmClicked);
+      promptButton.addEventListener('click', promptClicked);
+      saferButton.addEventListener('click', saferClicked);
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</head>
+
+<body>
+  <h1>Native Dialogs</h1>
+  <button id="alert">Alert</button>
+  <button id="confirm">Confirm</button>
+  <button id="prompt">Prompt</button>
+  <button id="safer">Safer Prompt</button>
+  <hr />
+  <output></output>
+</body>
+
+</html>
