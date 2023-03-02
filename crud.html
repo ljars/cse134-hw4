@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            outline: solid;
+        }
+    </style>
+
+    <script type="module">
+        import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify/dist/purify.es.min.js';
+
+        import { myAlert, myConfirm, myPrompt, myBlogPrompt } from './customdialog.js';
+
+        function sanitized(strs, val) {
+            return DOMPurify.sanitize(strs[0] + val);
+        }
+
+        function setOutput(str) {
+            let op = document.querySelector('output');
+            op.innerHTML = str;
+        }
+
+        const template = document.querySelector('template');
+        const container = document.querySelector('#blog-posts-container');
+
+        function deleteClicked(cloned) {
+            myConfirm("Delete this post?", function (answer) {
+                if (answer) {
+                    cloned.target.parentNode.remove();
+                    // myAlert('Deleted.');
+                }
+            })
+        }
+        function editClicked() {
+
+        }
+
+        function clonePost(title, date, summary) {
+            console.log('Clone post...');
+            const cloned = template.content.firstElementChild.cloneNode(true);
+            cloned.querySelector('h3').innerHTML = sanitized`${title}`;
+            cloned.querySelector('.date').innerHTML = sanitized`Date posted: ${date}`;
+            cloned.querySelector('.summary').innerHTML = sanitized`Summary: <br />${summary}`;
+
+
+            cloned.querySelector('.delete-button').addEventListener('click', deleteClicked);
+            cloned.querySelector('.edit-button').addEventListener('click', function () {
+                editClicked();
+            });
+            container.appendChild(cloned);
+            // container.removeChild(result);
+        }
+
+
+        function addPostClicked() {
+            console.log("ADD POST CLICKED");
+            myBlogPrompt("Create a new post...", function (answer) {
+                // console.log(answer);
+                if (answer !== null) {
+                    clonePost(answer.title, answer.date, answer.summary);
+                }
+            });
+        }
+
+
+        function init() {
+            let addPostButton = document.getElementById('add-post-button');
+            addPostButton.addEventListener('click', addPostClicked);
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</head>
+
+<body>
+    <h1>CRUD Blog</h1>
+    <section id="blog-posts-container">
+        <h2>Blog Posts</h2>
+        <!-- <section class="blog-post">
+            <h3>Title</h3>
+            <p>2pm Aug 1</p>
+            <p>Here is a 1-2 sentence summary of what the
+                post will be about...
+            </p>
+            <button class="edit-button">Edit</button>
+            <button class="delete-button">Delete</button>
+        </section>
+        <section class="blog-post">
+            <h3>Title</h3>
+            <p>2pm Aug 1</p>
+            <p>Here is a 1-2 sentence summary of what the
+                post will be about...
+            </p>
+            <button class="edit-button">Edit</button>
+            <button class="delete-button">Delete</button>
+        </section> -->
+    </section>
+    <button id="add-post-button">Add Post</button>
+
+    <template>
+        <section class="blog-post">
+            <h3 class="title">Title</h3>
+            <p class="date">2pm Aug 1</p>
+            <p class="summary">Here is a 1-2 sentence summary of what the
+                post will be about...
+            </p>
+            <button class="edit-button">Edit</button>
+            <button class="delete-button">Delete</button>
+        </section>
+    </template>
+
+    <dialog id='alert-dialog'>
+        <p>Alert pressed! Test</p>
+        <form method="dialog">
+            <button>Ok</button>
+        </form>
+    </dialog>
+
+    <dialog id='confirm-dialog'>
+        <p>Do you confirm this? Test</p>
+        <form method="dialog">
+            <button value="true">Ok</button>
+            <button value="false">Cancel</button>
+        </form>
+    </dialog>
+
+    <dialog id='blog-prompt-dialog'>
+        <p>Do you confirm this? Test</p>
+        <form method="dialog">
+            <label>
+                Title: <input type="text" name="title">
+            </label><br />
+            <label>
+                Date: <input type="date" name="date">
+            </label><br />
+            <label>
+                Summary: <br />
+                <textarea type="text" name="summary" rows="3" cols="50"></textarea>
+            </label><br />
+            <button value="true">Ok</button>
+            <button value="false">Cancel</button>
+        </form>
+    </dialog>
+</body>
+
+</html>
