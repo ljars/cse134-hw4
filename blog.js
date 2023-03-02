@@ -14,7 +14,6 @@ function deleteClicked(post) {
     myConfirm("Delete this post?", function (answer) {
         if (answer) {
             container.removeChild(post);
-            // myAlert('Deleted.');
             removeFromList(title, date, summary);
             save();
         }

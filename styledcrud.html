@@ -6,21 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <!-- <style>
-        section {
-            outline: solid;
-        }
-    </style> -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styledcrud.css" />
 
     <script type="module" src="./blog.js"></script>
 </head>
 
 <body>
-    <h1>CRUD Blog</h1>
-    <section id="blog-posts-container">
-        <h2>Blog Posts</h2>
-    </section>
-    <button id="add-post-button">Add Post</button>
+    <header>
+        <nav>
+            <p>Lucas Jarstad &hearts;</p>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./labs.html">Labs</a>
+            <a href="./styledcrud.html" class="active-tab">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Styled CRUD Blog</h1>
+        <section id="blog-posts-container">
+            <h2>Blog Posts</h2>
+        </section>
+        <button id="add-post-button">Add Post</button>
+    </main>
 
     <template>
         <section class="blog-post">
