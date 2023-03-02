@@ -139,6 +139,7 @@ a:hover {
     background-color: #848bca;
     display: block;
     margin: 1rem;
+    align-self: center;
 }
 
 #my-portrait img {

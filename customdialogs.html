@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dialogs</title>
+
+    <style>
+        dialog button {
+            float: right;
+        }
+
+        dialog input {
+            width: 300px;
+        }
+    </style>
+
+    <script type="module">
+        import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify/dist/purify.es.min.js';
+
+        import { myAlert, myConfirm, myPrompt } from './customdialog.js';
+
+        function sanitized(strs, val) {
+            return DOMPurify.sanitize(strs[0] + val);
+        }
+
+        function setOutput(str) {
+            let op = document.querySelector('output');
+            op.innerHTML = str;
+        }
+
+        const alertClicked = () => myAlert('Alert pressed!');
+
+        function confirmClicked() {
+            setOutput('');
+            setTimeout(function () {
+                myConfirm('Do you confirm this?', function (answer) {
+                    setOutput(`The value returned by the confirm method is : ${answer}`);
+                });
+            }, 0);
+        }
+        function promptClicked() {
+            setOutput('');
+            setTimeout(function () {
+                myPrompt('What is your name?', function (answer) {
+                    if (answer === null) {
+                        setOutput("User didn't enter anything");
+                    } else {
+                        setOutput(sanitized`The value returned by the prompt method is : ${answer}`);
+                    }
+                });
+            }, 0);
+        }
+
+        function init() {
+            let alertButton = document.getElementById('alert');
+            let confirmButton = document.getElementById('confirm');
+            let promptButton = document.getElementById('prompt');
+            // let saferButton = document.getElementById('safer');
+            alertButton.addEventListener('click', alertClicked);
+            confirmButton.addEventListener('click', confirmClicked);
+            promptButton.addEventListener('click', promptClicked);
+            // saferButton.addEventListener('click', saferClicked);
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</head>
+
+<body>
+    <h1>Custom Dialogs</h1>
+    <button id="alert">Alert</button>
+    <button id="confirm">Confirm</button>
+    <button id="prompt">Prompt</button>
+    <hr />
+    <output></output>
+
+    <dialog id='alert-dialog'>
+        <p>Alert pressed! Test</p>
+        <form method="dialog">
+            <button>Ok</button>
+        </form>
+    </dialog>
+
+    <dialog id='confirm-dialog'>
+        <p>Do you confirm this? Test</p>
+        <form method="dialog">
+            <button value="true">Ok</button>
+            <button value="false">Cancel</button>
+        </form>
+    </dialog>
+
+    <dialog id='prompt-dialog'>
+        <p>Do you confirm this? Test</p>
+        <form method="dialog">
+            <input type="text" name="answer"><br />
+            <button value="true">Ok</button>
+            <button value="false">Cancel</button>
+        </form>
+    </dialog>
+
+</body>
+
+</html>
