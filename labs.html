@@ -1,224 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Labs | My Resume</title>
-    <script>
-      window.addEventListener("load", function () {
-        let canvas = document.getElementById("canvas");
-        let context = canvas.getContext("2d");
 
-        context.fillStyle = "yellow";
-        context.fillRect(15, 30, 90, 75);
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Labs | My Resume</title>
+  <script>
+    window.addEventListener("load", function () {
+      let canvas = document.getElementById("canvas");
+      let context = canvas.getContext("2d");
 
-        context.strokeStyle = "red";
-        context.strokeRect(40, 10, 150, 65);
-      });
-    </script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <input type="checkbox" id="darkmode-hidden-checkbox" />
-    <header>
-      <nav>
-        <p>Lucas Jarstad &hearts;</p>
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About Me</a>
-        <a href="./contact.html">Contact Me</a>
-        <a href="./labs.html" class="active-tab">Labs</a>
-      </nav>
-    </header>
+      context.fillStyle = "yellow";
+      context.fillRect(15, 30, 90, 75);
 
-    <main>
-      <h1>Labs</h1>
-      <section>
-        <h2>Notes</h2>
-        To-Do List:
-        <ul>
-          <li>
-            CSE 134B HW
-            <ol>
-              <li>Delete this page</li>
-              <li>Persist dark theme</li>
-              <li>Do all images have alt text, etc.?</li>
-            </ol>
-          </li>
-        </ul>
+      context.strokeStyle = "red";
+      context.strokeRect(40, 10, 150, 65);
+    });
+  </script>
+  <script src="darkmode.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <!-- Could add items to the above todo list with JS -->
-        <template id="todo-item">
-          <li class="item"></li>
-        </template>
-        <div>
-          <p>
-            Question: When do you <em>actually</em> need a
-            <code>div</code> instead of a semantic element? Am I overusing
-            <code>section</code> right now?
-          </p>
-        </div>
-      </section>
+<body>
+  <input type="checkbox" id="darkmode-hidden-checkbox" />
+  <header>
+    <nav>
+      <p>Lucas Jarstad &hearts;</p>
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About Me</a>
+      <a href="./contact.html">Contact Me</a>
+      <a href="./labs.html" class="active-tab">Labs</a>
+    </nav>
+  </header>
 
-      <section>
-        <h2>Shopping</h2>
-        <form action="labs.html">
-          <fieldset>
-            <legend>Name</legend>
-            <label>
-              First Name:
-              <input
-                type="text"
-                name="firstname"
-                id="firstname"
-                placeholder="Joel"
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Last Name:
-              <input
-                type="text"
-                name="lastname"
-                id="lastname"
-                placeholder="Miller"
-                required
-              />
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>Address</legend>
-            <label>
-              Street Address:
-              <input
-                type="text"
-                name="street"
-                id="street"
-                placeholder="123 Main Street"
-                required
-              />
-            </label>
-            <br />
-            <label>
-              City:
-              <input
-                type="text"
-                name="city"
-                id="city"
-                placeholder="San Diego"
-                required
-              />
-            </label>
-            <br />
-            <label
-              >State:
-              <input
-                type="text"
-                name="state"
-                id="state"
-                list="statelist"
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Zip Code:
-              <input type="text" name="zipcode" id="zipcode" required />
-            </label>
-            <br />
-            <datalist id="statelist">
-              <option>CA</option>
-              <option>NV</option>
-              <option>AZ</option>
-              <option>OR</option>
-            </datalist>
-          </fieldset>
-          <fieldset>
-            <legend>Shipping</legend>
-            <div>
-              <input
-                type="radio"
-                name="shipping"
-                id="free"
-                value="free"
-                required
-                checked
-              />
-              <label for="free">7-14 days (FREE)</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="shipping"
-                id="regular"
-                value="regular"
-                required
-              />
-              <label for="regular">2-4 days ($2.99)</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="shipping"
-                id="oneday"
-                value="oneday"
-                required
-              />
-              <label for="oneday">1 day ($7.99)</label>
-            </div>
-          </fieldset>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-      <section>
-        <h2>Audio and Video</h2>
-        <figure>
-          <figcaption>
-            Diabelli Variations 00 by Beethoven (from Wikipedia)
-          </figcaption>
-          <audio
-            controls
-            src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Beethoven_-_Diabelli_Variations_-_00.ogg"
-          >
-            <a
-              href="https://upload.wikimedia.org/wikipedia/commons/e/e9/Beethoven_-_Diabelli_Variations_-_00.ogg"
-            >
-              Download audio
-            </a>
-          </audio>
-        </figure>
-        <figure>
-          <figcaption>
-            Physics lecture video clip by Walter Lewin (also from Wikipedia)
-          </figcaption>
-          <video controls width="300">
-            <source
-              src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Physicsworks.ogv"
-              type="video/ogg"
-            />
-            <a
-              href="https://upload.wikimedia.org/wikipedia/commons/c/c4/Physicsworks.ogv"
-              >Download the video</a
-            >
-          </video>
-        </figure>
-      </section>
+  <main>
+    <h1>Labs</h1>
+    <section>
+      <h2>Notes</h2>
+      To-Do List:
+      <ul>
+        <li>
+          CSE 134B HW
+          <ol>
+            <li>Delete this page</li>
+            <li>Persist dark theme</li>
+            <li>Do all images have alt text, etc.?</li>
+          </ol>
+        </li>
+      </ul>
 
-      <section>
-        <h2>Canvas Example</h2>
-        <canvas id="canvas" width="300" height="300">
-          <strong>Canvas not supported by your browser.</strong>
-        </canvas>
-      </section>
-    </main>
+      <!-- Could add items to the above todo list with JS -->
+      <template id="todo-item">
+        <li class="item"></li>
+      </template>
+      <div>
+        <p>
+          Question: When do you <em>actually</em> need a
+          <code>div</code> instead of a semantic element? Am I overusing
+          <code>section</code> right now?
+        </p>
+      </div>
+    </section>
 
-    <footer>
-      <label for="darkmode-hidden-checkbox" id="darkmode-label">
-        Dark Mode
-        <div id="darkmode-switch"><div id="knob"></div></div>
-      </label>
-      <p><i>This page will be deleted eventually.</i></p>
-    </footer>
-  </body>
+    <section>
+      <h2>Shopping</h2>
+      <form action="labs.html">
+        <fieldset>
+          <legend>Name</legend>
+          <label>
+            First Name:
+            <input type="text" name="firstname" id="firstname" placeholder="Joel" required />
+          </label>
+          <br />
+          <label>
+            Last Name:
+            <input type="text" name="lastname" id="lastname" placeholder="Miller" required />
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Address</legend>
+          <label>
+            Street Address:
+            <input type="text" name="street" id="street" placeholder="123 Main Street" required />
+          </label>
+          <br />
+          <label>
+            City:
+            <input type="text" name="city" id="city" placeholder="San Diego" required />
+          </label>
+          <br />
+          <label>State:
+            <input type="text" name="state" id="state" list="statelist" required />
+          </label>
+          <br />
+          <label>
+            Zip Code:
+            <input type="text" name="zipcode" id="zipcode" required />
+          </label>
+          <br />
+          <datalist id="statelist">
+            <option>CA</option>
+            <option>NV</option>
+            <option>AZ</option>
+            <option>OR</option>
+          </datalist>
+        </fieldset>
+        <fieldset>
+          <legend>Shipping</legend>
+          <div>
+            <input type="radio" name="shipping" id="free" value="free" required checked />
+            <label for="free">7-14 days (FREE)</label>
+          </div>
+          <div>
+            <input type="radio" name="shipping" id="regular" value="regular" required />
+            <label for="regular">2-4 days ($2.99)</label>
+          </div>
+          <div>
+            <input type="radio" name="shipping" id="oneday" value="oneday" required />
+            <label for="oneday">1 day ($7.99)</label>
+          </div>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    <section>
+      <h2>Audio and Video</h2>
+      <figure>
+        <figcaption>
+          Diabelli Variations 00 by Beethoven (from Wikipedia)
+        </figcaption>
+        <audio controls
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Beethoven_-_Diabelli_Variations_-_00.ogg">
+          <a href="https://upload.wikimedia.org/wikipedia/commons/e/e9/Beethoven_-_Diabelli_Variations_-_00.ogg">
+            Download audio
+          </a>
+        </audio>
+      </figure>
+      <figure>
+        <figcaption>
+          Physics lecture video clip by Walter Lewin (also from Wikipedia)
+        </figcaption>
+        <video controls width="300">
+          <source src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Physicsworks.ogv" type="video/ogg" />
+          <a href="https://upload.wikimedia.org/wikipedia/commons/c/c4/Physicsworks.ogv">Download the video</a>
+        </video>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Canvas Example</h2>
+      <canvas id="canvas" width="300" height="300">
+        <strong>Canvas not supported by your browser.</strong>
+      </canvas>
+    </section>
+  </main>
+
+  <footer>
+    <label for="darkmode-hidden-checkbox" id="darkmode-label">
+      Dark Mode
+      <div id="darkmode-switch">
+        <div id="knob"></div>
+      </div>
+    </label>
+    <p><i>This page will be deleted eventually.</i></p>
+  </footer>
+</body>
+
 </html>

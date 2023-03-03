@@ -20,7 +20,7 @@
             <a href="./about.html">About Me</a>
             <a href="./contact.html">Contact Me</a>
             <a href="./labs.html">Labs</a>
-            <a href="./styledcrud.html" class="active-tab">Blog</a>
+            <!-- <a href="./styledcrud.html" class="active-tab">Blog</a> -->
         </nav>
     </header>
 
@@ -39,8 +39,12 @@
             <p class="summary">Here is a 1-2 sentence summary of what the
                 post will be about...
             </p>
-            <button class="edit-button">Edit</button>
-            <button class="delete-button">Delete</button>
+            <button class="edit-button">
+                <img src="resources/pencil.svg" alt="Edit" />
+            </button>
+            <button class="delete-button">
+                <img src="resources/trash.svg" alt="Edit" />
+            </button>
         </section>
     </template>
 
@@ -62,16 +66,13 @@
     <dialog id='blog-prompt-dialog'>
         <p>Do you confirm this? Test</p>
         <form method="dialog">
-            <label>
-                Title: <input type="text" name="title">
-            </label><br />
-            <label>
-                Date: <input type="date" name="date">
-            </label><br />
-            <label>
-                Summary: <br />
-                <textarea type="text" name="summary" rows="3" cols="50"></textarea>
-            </label><br />
+            <label for="title-input">Title: </label>
+            <input type="text" name="title" id="title-input" autofocus><br />
+            <label for="date-input">Date:</label>
+            <input type="date" name="date" id="date-input"><br />
+            <label for="summary-input">Summary:</label>
+            <textarea type="text" name="summary" id="summary-input" rows="3" cols="50"></textarea>
+            <br />
             <button value="true">Ok</button>
             <button value="false">Cancel</button>
         </form>

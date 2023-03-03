@@ -1,13 +1,13 @@
 export function myAlert(message) {
     let dialog = document.getElementById('alert-dialog');
     dialog.querySelector('p').innerText = message;
-    dialog.show();
+    dialog.showModal();
 }
 
 export function myConfirm(message, callback) {
     let dialog = document.getElementById('confirm-dialog');
     dialog.querySelector('p').innerText = message;
-    dialog.show();
+    dialog.showModal();
     dialog.addEventListener('close', function handler() {
         callback(dialog.returnValue === 'true');
         this.removeEventListener('close', handler);
@@ -17,7 +17,7 @@ export function myConfirm(message, callback) {
 export function myPrompt(message, callback) {
     let dialog = document.getElementById('prompt-dialog');
     dialog.querySelector('p').innerText = message;
-    dialog.show();
+    dialog.showModal();
     dialog.addEventListener('close', function handler() {
         if (dialog.returnValue === 'true') {
             callback(dialog.querySelector('input').value);
@@ -44,7 +44,7 @@ export function myBlogPrompt(message, callback, title='', date=undefined, summar
     dialog.querySelector('input[name="title"]').value = title;
     dialog.querySelector('input[name="date"]').value = date;
     dialog.querySelector('textarea[name="summary"]').value = summary;
-    dialog.show();
+    dialog.showModal();
 
     dialog.addEventListener('close', function handler() {
         if (dialog.returnValue === 'true') {

@@ -37,7 +37,7 @@
             setOutput('');
             setTimeout(function () {
                 myConfirm('Do you confirm this?', function (answer) {
-                    setOutput(`The value returned by the confirm method is : ${(answer)}`);
+                    setOutput(`Confirm result : ${(answer)}`);
                 });
             }, 0);
         }
@@ -48,7 +48,7 @@
                     if (answer === null) {
                         setOutput("User didn't enter anything");
                     } else {
-                        setOutput(sanitized`The value returned by the prompt method is : ${answer}`);
+                        setOutput(sanitized`Prompt result : ${answer}`);
                     }
                 });
             }, 0);
@@ -80,7 +80,7 @@
     <dialog id='alert-dialog'>
         <p>Alert pressed! Test</p>
         <form method="dialog">
-            <button>Ok</button>
+            <button autofocus>Ok</button>
         </form>
     </dialog>
 
@@ -88,14 +88,14 @@
         <p>Do you confirm this? Test</p>
         <form method="dialog">
             <button value="true">Ok</button>
-            <button value="false">Cancel</button>
+            <button value="false" autofocus>Cancel</button>
         </form>
     </dialog>
 
     <dialog id='prompt-dialog'>
         <p>Do you confirm this? Test</p>
         <form method="dialog">
-            <input type="text" name="answer"><br />
+            <input type="text" name="answer" autofocus><br />
             <button value="true">Ok</button>
             <button value="false">Cancel</button>
         </form>

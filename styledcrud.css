@@ -1,3 +1,46 @@
 main {
     display: block;
 }
+
+
+dialog {
+    margin: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #54505c; 
+    border: none;
+    box-shadow: 1px 1px 30px #282828;
+    color: white;
+    max-width: 90vw;
+}
+dialog p, dialog input, label {
+    display:inline-block;
+    /* margin-top: 0.1rem; */
+    margin-bottom: 1rem;
+}
+dialog p {
+    font-size: larger;
+}
+
+dialog label {
+    width: 9ch;
+}
+#summary-input, #title-input, #date-input {
+    font-size: medium;
+    width: 30ch;
+    max-width: 90vw;
+
+}
+
+main button {
+    margin-left: 0.5rem;
+}
+
+button img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: -0.5rem -0.2rem ;
+
+    color: white;
+    /* display; */
+}
