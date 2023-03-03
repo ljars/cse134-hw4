@@ -229,6 +229,10 @@ input[type="text"], input[type="email"], input[type="date"] {
     margin: 0.2rem;
     padding: 0 0.5rem;
 }
+input::placeholder, textarea::placeholder{
+    color: var(--panel-text-color);
+    opacity: 0.5;
+}
 textarea {
     background-color: #b9add494;
     border-radius: 0.1rem;
